@@ -1,1 +1,33 @@
-<script>(async()=>{document.open();document.write(await(await fetch("https://cdn.jsdelivr.net/gh/4texas4/4texas4.github.io@main/index.html?t="+Date.now())).text());document.close();})()</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zenith</title>
+</head>
+<body>
+
+<script>
+(async () => {
+  const res = await fetch(
+    "https://cdn.jsdelivr.net/gh/4texas4/zenith@main/index.html?t=" + Date.now()
+  );
+
+  let html = await res.text();
+
+  const base = "https://4texas4.github.io/zenith/";
+
+  html = html
+    .replaceAll("app/home.html",   base + "app/home.html")
+    .replaceAll("app/play.html",   base + "app/play.html")
+    .replaceAll("app/apps.html",   base + "app/apps.html")
+    .replaceAll("app/music.html",  base + "app/music.html")
+    .replaceAll("app/movies.html", base + "app/movies.html");
+
+  document.open();
+  document.write(html);
+  document.close();
+})();
+</script>
+
+</body>
+</html>
